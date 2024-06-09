@@ -1,0 +1,50 @@
+﻿<Window x:Class="Cyberbezpieczenstwo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cyberbezpieczenstwo"
+        Closing="Window_Closing"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <StackPanel VerticalAlignment="Top">
+            <Menu Width="Auto">
+                <MenuItem Header="Połączenie">
+                    <MenuItem Header="Połącz z klientem" HorizontalAlignment="Left" Click="Button_Click_Connect"/>
+                    <MenuItem Header="Rozłącz klienta" HorizontalAlignment="Left" Click="Button_Click_Disconnect"/>
+                </MenuItem>
+                <MenuItem Header="Okno">
+                    <MenuItem Header="Otwórz nowe okno" HorizontalAlignment="Left" Click="Button_Click_OpenNewWindow"/>
+                </MenuItem>
+                <MenuItem Header="Zakończ" Click="Button_Click_Exit"/>
+                <TextBlock Margin="50, 0, 0, 0" Name="Encrypted" Text="Status: Rozłączono"/>
+            </Menu>
+        </StackPanel>
+
+        <Border BorderBrush="Black" BorderThickness="1" Margin="0, 100, 389, 0"></Border>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="410, 100, 0, 0"></Border>
+
+        <TextBlock FontSize="22" Margin="0,46,0,334" TextAlignment="Center" ><Run Text="Szyfrowanie i deszyfrowanie "/><Run Language="pl-pl" Text="z wykorzystaniem kryptografii asymetrycznej"/></TextBlock>
+
+        <TextBlock FontSize="20" TextAlignment="Center" Margin="104,121,471,262">Szyfrowanie wiadomosci</TextBlock>
+        <TextBlock FontSize="20" TextAlignment="Center" Margin="497,121,77,248">Szyfrowanie plików</TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="49" Margin="76,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120" Name="Raw"/>
+        <TextBlock Margin="56,259,444,111" Text="Otrzymana wiadomość:" TextAlignment="Center" FontSize="20" Background="Gray"/>
+        <TextBlock Margin="56,291,444,57" Name="DecipheredMsg" TextWrapping="Wrap"  TextAlignment="Center" FontSize="16" Background="LightGray"></TextBlock>
+        <Button Content="Szyfruj" HorizontalAlignment="Left" Margin="229,192,0,0" Height="25" VerticalAlignment="Top" Width="100" Click="Button_Click"/>
+        <ComboBox HorizontalAlignment="Left" Margin="416,217,0,0" VerticalAlignment="Top" Width="120" Name="cb"/>
+        <ComboBox HorizontalAlignment="Left" Margin="416,275,0,0" VerticalAlignment="Top" Width="120" Name="cb2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="426,197,0,0" Text="Wybierz tryb pracy" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="416,254,0,0" Text="Wybierz algorytm szyfrujący" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button Content="Zaszyfruj plik" HorizontalAlignment="Left" Margin="545,0,0,0" VerticalAlignment="Center" Click="Button_Click_CipherFile" Height="48" Width="130"/>
+        <Button Content="Odszyfruj plik" HorizontalAlignment="Left" Margin="545,299,0,0" VerticalAlignment="Top" Click="Button_Click_DecipherFile" Height="48" Width="130"/>
+        <Button Content="Generate Key" HorizontalAlignment="Left" Margin="693,190,0,0" VerticalAlignment="Top" Click="InitKey"/>
+        <Button Content="Read private Key" HorizontalAlignment="Left" Margin="686,257,0,0" VerticalAlignment="Top" Click="readPrivKey"/>
+        <Button Content="Read public Key" HorizontalAlignment="Left" Margin="686,308,0,0" VerticalAlignment="Top" Click="readPubKey"/>
+        <TextBlock HorizontalAlignment="Left" Margin="686,236,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="pl-pl" Text="Do deszyfracji"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="686,287,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Do "/><Run Language="pl-pl" Text="zaszyfrowania"/></TextBlock>
+
+    </Grid>
+</Window>
+
